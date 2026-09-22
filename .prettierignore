@@ -1,0 +1,6 @@
+pnpm-lock.yaml
+ios
+android
+.expo
+dist
+src/uniwind-types.d.ts

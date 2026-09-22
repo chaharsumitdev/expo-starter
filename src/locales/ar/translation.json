@@ -1,0 +1,105 @@
+{
+  "common": {
+    "continue": "متابعة",
+    "cancel": "إلغاء",
+    "save": "حفظ",
+    "done": "تم",
+    "retry": "حاول مرة أخرى",
+    "or": "أو",
+    "loading": "جارٍ التحميل…"
+  },
+  "errors": {
+    "generic": "حدث خطأ ما. يرجى المحاولة مرة أخرى.",
+    "network": "يبدو أنك غير متصل. تحقق من اتصالك وحاول مرة أخرى.",
+    "notFound": "هذه الشاشة غير موجودة.",
+    "goHome": "الذهاب إلى الشاشة الرئيسية"
+  },
+  "auth": {
+    "welcome": "مرحبًا",
+    "subtitle": "سجّل الدخول للمتابعة",
+    "continueWithPhone": "المتابعة برقم الهاتف",
+    "continueWithEmail": "المتابعة بالبريد الإلكتروني",
+    "continueWithGoogle": "المتابعة باستخدام Google",
+    "continueWithApple": "المتابعة باستخدام Apple",
+    "emailCode": "أرسل لي رمز الدخول بالبريد",
+    "magicLink": "أرسل لي رابط الدخول بالبريد",
+    "phoneTitle": "ما رقم هاتفك؟",
+    "phoneSubtitle": "سنرسل لك رمزًا للتحقق منه.",
+    "phonePlaceholder": "رقم الهاتف",
+    "invalidPhone": "أدخل رقم هاتف صحيحًا",
+    "emailTitle": "تسجيل الدخول بالبريد الإلكتروني",
+    "emailPlaceholder": "البريد الإلكتروني",
+    "passwordPlaceholder": "كلمة المرور",
+    "invalidEmail": "أدخل بريدًا إلكترونيًا صحيحًا",
+    "passwordTooShort": "استخدم 8 أحرف على الأقل",
+    "signIn": "تسجيل الدخول",
+    "signUp": "إنشاء حساب",
+    "noAccount": "ليس لديك حساب؟ أنشئ حسابًا",
+    "haveAccount": "لديك حساب بالفعل؟ سجّل الدخول",
+    "forgotPassword": "نسيت كلمة المرور؟",
+    "resetSent": "إذا كان هناك حساب، فقد أرسلنا لك رابط إعادة التعيين.",
+    "namePlaceholder": "الاسم",
+    "otpTitle": "أدخل الرمز",
+    "otpSubtitle": "أُرسل إلى {{destination}}",
+    "resendIn": "إعادة إرسال الرمز خلال {{seconds}} ث",
+    "resend": "إعادة إرسال الرمز",
+    "checkEmailTitle": "تحقق من بريدك الإلكتروني",
+    "checkEmailSubtitle": "أرسلنا رابط تسجيل الدخول إلى {{email}}. افتحه على هذا الجهاز.",
+    "verifyingLink": "جارٍ تسجيل دخولك…",
+    "linkInvalid": "رابط تسجيل الدخول غير صالح أو منتهي الصلاحية.",
+    "backToSignIn": "العودة إلى تسجيل الدخول",
+    "mockHint": "واجهة تجريبية: استخدم الرمز 000000"
+  },
+  "onboarding": {
+    "title": "كل شيء جاهز",
+    "subtitle": "أخبرنا باسمك لنعرف كيف نناديك.",
+    "finish": "لنبدأ"
+  },
+  "tabs": {
+    "home": "الرئيسية",
+    "explore": "استكشاف",
+    "settings": "الإعدادات"
+  },
+  "home": {
+    "greeting": "مرحبًا، {{name}}",
+    "subtitle": "هذا تطبيقك المبدئي. استبدل هذه الشاشة بشاشتك.",
+    "openModal": "فتح نافذة",
+    "animation": "عرض Worklets",
+    "dragMe": "اسحبني",
+    "updateWidget": "تحديث أداة الشاشة الرئيسية",
+    "widgetUpdated": "تم تحديث الأداة"
+  },
+  "explore": {
+    "title": "استكشاف",
+    "empty": "لا يوجد شيء هنا بعد."
+  },
+  "item": {
+    "title": "عنصر"
+  },
+  "modal": {
+    "title": "نافذة",
+    "body": "الورقة هي مسار عادي باستخدام `presentation: 'formSheet'`. اسحب لتغيير الحجم."
+  },
+  "settings": {
+    "title": "الإعدادات",
+    "appearance": "المظهر",
+    "theme": {
+      "system": "النظام",
+      "light": "فاتح",
+      "dark": "داكن"
+    },
+    "language": "اللغة",
+    "languageSystem": "لغة النظام",
+    "notifications": "الإشعارات",
+    "enableNotifications": "تفعيل الإشعارات",
+    "notificationsEnabled": "مفعّلة",
+    "notificationsDenied": "متوقفة من إعدادات النظام",
+    "account": "الحساب",
+    "signOut": "تسجيل الخروج",
+    "deleteAccount": "حذف الحساب",
+    "deleteConfirmTitle": "هل تريد حذف حسابك؟",
+    "deleteConfirmBody": "سيؤدي هذا إلى حذف حسابك وبياناتك نهائيًا. لا يمكن التراجع عن ذلك.",
+    "delete": "حذف",
+    "version": "الإصدار {{version}} ({{variant}})"
+  }
+}
