@@ -5,12 +5,15 @@ A starter template for React Native apps with everything already set up: Expo SD
 ## New app in 5 minutes
 
 ```bash
-pnpm create expo-app my-app --template https://github.com/chaharsumitdev/expo-starter
+gh repo create my-app --template chaharsumitdev/expo-starter --private --clone
 cd my-app
+pnpm install
 pnpm rename --name "My App" --bundle-id com.me.myapp
 npx eas-cli@latest init          # links EAS project (needed for push + updates)
 pnpm ios                         # builds the dev client and runs it
 ```
+
+Use `gh repo create --template` (or "Use this template" on GitHub), not `create-expo-app --template`, which drops dotfiles like `.env`, `.npmrc` and `.eas/`.
 
 With `EXPO_PUBLIC_API_MOCK=true` (default in `.env`) the whole app works without a backend. The OTP code is `000000`.
 
