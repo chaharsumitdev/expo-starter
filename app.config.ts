@@ -9,7 +9,7 @@ const APP = {
   slug: 'expo-starter',
   scheme: 'expostarter',
   bundleId: 'com.example.expostarter',
-  easProjectId: '', // set by `eas init`
+  easProjectId: '', // set by `pnpm eas:init`
   owner: undefined as string | undefined,
 };
 
@@ -109,6 +109,10 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     [
       'expo-widgets',
       {
+        // Widget extension id, and the App Group shared by the app and its widgets.
+        // EAS registers both with Apple on the first device build.
+        bundleIdentifier: `${bundleId}.widgets`,
+        groupIdentifier: `group.${bundleId}`,
         widgets: [
           {
             name: 'StatsWidget',

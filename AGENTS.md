@@ -11,7 +11,12 @@ npx expo install <pkg>   # ALWAYS instead of pnpm add for RN/Expo packages (SDK-
 pnpm check               # typecheck + lint + test. Run before declaring a task done.
 pnpm ios | pnpm android  # build + run the dev client (needed after adding native code)
 pnpm start               # Metro only
+pnpm build:sim           # local EAS build (also build:dev|preview|prod:ios|android), artifacts in build/
 ```
+
+## Builds: local only
+
+The account is on the free EAS plan. **Never start a cloud build.** Always build locally: `pnpm ios`/`pnpm android`, or the `pnpm build:*` scripts (`eas build --local`). Do not run `eas build` without `--local`, `pnpm release:cloud`, `eas workflow:run`, or the Expo MCP `build_run`/`workflow_run` tools unless the user explicitly asks for a cloud or production build in that conversation. `eas update` publishes to real users, so it also needs explicit permission. See `docs/builds.md`.
 
 ## Architecture rules
 
@@ -38,4 +43,5 @@ The Argent MCP server (`.mcp.json`) can drive iOS simulators and Android emulato
 
 - `docs/backend-contract.md`: API the app expects
 - `docs/auth-setup.md`: Google/Apple console setup, enabling providers
+- `docs/builds.md`: local vs cloud builds, profiles, credentials, build troubleshooting
 - `docs/modules/*`: opt-in integrations (Sentry, RevenueCat, Maestro, analytics, universal links)

@@ -89,5 +89,5 @@ Done. Next:
   1. Translate the app name in src/locales/*/native.json
   2. Replace icons/splash in assets/images
   3. Set brand colors in src/global.css
-  4. npx eas-cli@latest init   (links an EAS project, fills easProjectId)
+  4. pnpm eas:init             (links an EAS project, fills easProjectId)
   5. rm -rf ios android && pnpm ios`);

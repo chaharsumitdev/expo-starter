@@ -1,10 +1,12 @@
-# Push to main → OTA update when only JS changed, otherwise new store builds.
+# Production release: OTA update when only JS changed, otherwise cloud store builds + submit.
 # Uses the fingerprint to decide. Docs: https://docs.expo.dev/eas/workflows/examples/deploy-to-production/
+#
+# Manual only, because cloud builds use the EAS plan quota:
+#   eas workflow:run .eas/workflows/release.yml
 name: Release
 
 on:
-  push:
-    branches: ['main']
+  workflow_dispatch: {}
 
 jobs:
   fingerprint:
@@ -43,4 +45,5 @@ jobs:
     needs: [get_ios_build, get_android_build]
     if: ${{ needs.get_ios_build.outputs.build_id && needs.get_android_build.outputs.build_id }}
     type: update
+    env: { APP_VARIANT: production, EXPO_PUBLIC_API_MOCK: 'false' }
     params: { channel: production }
