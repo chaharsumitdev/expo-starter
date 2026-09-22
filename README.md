@@ -5,7 +5,7 @@ A starter template for React Native apps with everything already set up: Expo SD
 ## New app in 5 minutes
 
 ```bash
-pnpm create expo-app my-app --template https://github.com/<you>/expo-starter
+pnpm create expo-app my-app --template https://github.com/chaharsumitdev/expo-starter
 cd my-app
 pnpm rename --name "My App" --bundle-id com.me.myapp
 npx eas-cli@latest init          # links EAS project (needed for push + updates)
