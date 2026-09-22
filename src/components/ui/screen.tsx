@@ -1,6 +1,6 @@
 import { Platform, View, type ViewProps } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-controller';
-import { type Edge, SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
+import { type Edge, SafeAreaView } from 'react-native-safe-area-context';
 import { withUniwind } from 'uniwind';
 
 import { cn } from '@/lib/cn';
@@ -25,26 +25,27 @@ export function Screen({
   children,
   ...props
 }: ScreenProps) {
-  const insets = useSafeAreaInsets();
-
   if (scroll) {
-    // The scroll view must be the screen's root so native large titles collapse with it.
-    // iOS insets it automatically; Android needs explicit padding.
-    const pad = Platform.OS !== 'ios';
-    return (
+    const content = (
       <StyledKeyboardScroll
         contentInsetAdjustmentBehavior="automatic"
         keyboardShouldPersistTaps="handled"
         bottomOffset={24}
         className={cn('flex-1 bg-background', className)}
-        contentContainerStyle={{
-          ...(pad && edges.includes('top') && { paddingTop: insets.top + 20 }),
-          ...(pad && edges.includes('bottom') && { paddingBottom: insets.bottom + 20 }),
-        }}
         contentContainerClassName={cn('grow gap-4 p-5', contentClassName)}
         {...props}>
         {children}
       </StyledKeyboardScroll>
+    );
+    // iOS: the scroll view must be the screen's root so native large titles collapse with it,
+    // and `contentInsetAdjustmentBehavior` handles the safe area and header.
+    // Android: the native SafeAreaView pads only what actually overlaps the system bars
+    // (nothing under a header), so `edges` is safe to pass either way.
+    if (Platform.OS === 'ios') return content;
+    return (
+      <StyledSafeAreaView edges={edges} className="flex-1 bg-background">
+        {content}
+      </StyledSafeAreaView>
     );
   }
 

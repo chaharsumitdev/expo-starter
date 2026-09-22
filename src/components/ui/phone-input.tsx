@@ -7,11 +7,12 @@ import {
   getCountryCallingCode,
 } from 'libphonenumber-js/min';
 import { useMemo, useState } from 'react';
-import { Modal, Pressable, TextInput, View } from 'react-native';
+import { Modal, Platform, Pressable, TextInput, View } from 'react-native';
 
 import { cn } from '@/lib/cn';
 
 import { Input } from './input';
+import { Screen } from './screen';
 import { Text } from './text';
 
 const flag = (country: string) =>
@@ -35,6 +36,8 @@ type PhoneInputProps = {
   onChangeText: (value: string) => void;
   error?: string;
   placeholder?: string;
+  /** Placeholder for the country picker's search field. */
+  searchPlaceholder?: string;
   autoFocus?: boolean;
 };
 
@@ -45,6 +48,7 @@ export function PhoneInput({
   onChangeText,
   error,
   placeholder,
+  searchPlaceholder,
   autoFocus,
 }: PhoneInputProps) {
   const [pickerOpen, setPickerOpen] = useState(false);
@@ -83,6 +87,7 @@ export function PhoneInput({
       {error ? <Text variant="error">{error}</Text> : null}
       <CountryPicker
         visible={pickerOpen}
+        searchPlaceholder={searchPlaceholder}
         onClose={() => setPickerOpen(false)}
         onSelect={(c) => {
           onCountryChange(c);
@@ -97,8 +102,10 @@ function CountryPicker({
   visible,
   onClose,
   onSelect,
+  searchPlaceholder,
 }: {
   visible: boolean;
+  searchPlaceholder?: string;
   onClose: () => void;
   onSelect: (country: CountryCode) => void;
 }) {
@@ -115,11 +122,14 @@ function CountryPicker({
       animationType="slide"
       presentationStyle="pageSheet"
       onRequestClose={onClose}>
-      <View className="flex-1 gap-3 bg-background p-4">
+      {/* pageSheet is iOS-only. On Android the modal is full screen and edge-to-edge. */}
+      <Screen
+        edges={Platform.OS === 'android' ? ['top', 'bottom'] : []}
+        contentClassName="gap-3 p-4">
         <Input
           value={query}
           onChangeText={setQuery}
-          placeholder="Search (e.g. IN, +91)"
+          placeholder={searchPlaceholder}
           autoCorrect={false}
         />
         <FlashList
@@ -136,7 +146,7 @@ function CountryPicker({
             </Pressable>
           )}
         />
-      </View>
+      </Screen>
     </Modal>
   );
 }

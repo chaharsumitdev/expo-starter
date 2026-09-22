@@ -45,6 +45,7 @@ export default function PhoneScreen() {
         onChangeText={setValue}
         error={error}
         placeholder={t('auth.phonePlaceholder')}
+        searchPlaceholder={t('auth.countrySearch')}
         autoFocus
       />
       <Button title={t('common.continue')} loading={requestOtp.isPending} onPress={submit} />
