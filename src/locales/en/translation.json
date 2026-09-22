@@ -26,6 +26,7 @@
     "phoneTitle": "What's your phone number?",
     "phoneSubtitle": "We'll text you a code to verify it.",
     "phonePlaceholder": "Phone number",
+    "countrySearch": "Search (e.g. IN, +91)",
     "invalidPhone": "Enter a valid phone number",
     "emailTitle": "Sign in with email",
     "emailPlaceholder": "Email",

@@ -26,6 +26,7 @@
     "phoneTitle": "ما رقم هاتفك؟",
     "phoneSubtitle": "سنرسل لك رمزًا للتحقق منه.",
     "phonePlaceholder": "رقم الهاتف",
+    "countrySearch": "ابحث (مثال: IN، ‎+91)",
     "invalidPhone": "أدخل رقم هاتف صحيحًا",
     "emailTitle": "تسجيل الدخول بالبريد الإلكتروني",
     "emailPlaceholder": "البريد الإلكتروني",
@@ -100,6 +101,6 @@
     "deleteConfirmTitle": "هل تريد حذف حسابك؟",
     "deleteConfirmBody": "سيؤدي هذا إلى حذف حسابك وبياناتك نهائيًا. لا يمكن التراجع عن ذلك.",
     "delete": "حذف",
-    "version": "الإصدار {{version}} ({{variant}})"
+    "version": "الإصدار \u2066{{version}} ({{variant}})\u2069"
   }
 }

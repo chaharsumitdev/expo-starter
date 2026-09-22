@@ -26,16 +26,19 @@ async function ensureAndroidChannel() {
 
 export type PushPermission = 'granted' | 'denied' | 'undetermined';
 
+// Android has no "undetermined": it reports "denied" until the user is asked, with canAskAgain = true.
+function toPushPermission({ status, canAskAgain }: Notifications.NotificationPermissionsStatus) {
+  return status === 'denied' && canAskAgain ? 'undetermined' : status;
+}
+
 export async function getPushPermission(): Promise<PushPermission> {
-  const { status } = await Notifications.getPermissionsAsync();
-  return status;
+  return toPushPermission(await Notifications.getPermissionsAsync());
 }
 
 /** Shows the OS prompt (only once per install on iOS). Call it at a meaningful moment. */
 export async function requestPushPermission(): Promise<PushPermission> {
   await ensureAndroidChannel();
-  const { status } = await Notifications.requestPermissionsAsync();
-  return status;
+  return toPushPermission(await Notifications.requestPermissionsAsync());
 }
 
 let registeredToken: string | null = null;
